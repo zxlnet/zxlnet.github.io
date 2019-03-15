@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>班级日志</title>
+    <title>班级日志统计</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -12,19 +12,46 @@
     <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
 
+    <style type="text/css">
+        table.result-table {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #cccccc;
+            border-collapse: collapse;
+            text-align:center;
+        }
+
+        table.result-table th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #cccccc;
+            background-color: #dedede;
+        }
+
+        table.result-table td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #cccccc;
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
     <div class="page-group">
         <div class="page page-current">
             <header class="bar bar-nav">
-                <button class="button button-fill button-warning pull-left">
-                        重填
+                <button id="btnReset" class="button button-fill button-warning pull-left">
+                    重填
                 </button>
-                <button class="button button-fill button-success pull-right">
+                <button id="btnStat" class="button button-fill button-success pull-right">
                     统计
                 </button>
-                <h1 class="title">班级日志</h1>
+                <h1 class="title">班级日志统计</h1>
             </header>
 
             <div class="content">
@@ -47,7 +74,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">按时到校:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +85,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">交作业:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-2">
                                                 </div>
                                             </div>
                                         </div>
@@ -69,7 +96,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">晨读:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-3">
                                                 </div>
                                             </div>
                                         </div>
@@ -88,7 +115,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-4">
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +126,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-4">
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +137,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-6">
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +148,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-6">
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +165,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-8">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +176,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-9">
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +187,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-10">
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +198,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-11">
                                                 </div>
                                             </div>
                                         </div>
@@ -188,7 +215,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-12">
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +226,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-3">
                                                 </div>
                                             </div>
                                         </div>
@@ -210,7 +237,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-14">
                                                 </div>
                                             </div>
                                         </div>
@@ -221,7 +248,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-15">
                                                 </div>
                                             </div>
                                         </div>
@@ -238,7 +265,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-16">
                                                 </div>
                                             </div>
                                         </div>
@@ -249,7 +276,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-17">
                                                 </div>
                                             </div>
                                         </div>
@@ -260,7 +287,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-18">
                                                 </div>
                                             </div>
                                         </div>
@@ -271,7 +298,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-19">
                                                 </div>
                                             </div>
                                         </div>
@@ -288,7 +315,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">课间:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-20">
                                                 </div>
                                             </div>
                                         </div>
@@ -306,7 +333,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">午餐:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-21">
                                                 </div>
                                             </div>
                                         </div>
@@ -317,7 +344,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">卫生:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-22">
                                                 </div>
                                             </div>
                                         </div>
@@ -328,7 +355,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">自修:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-23">
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +374,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-24">
                                                 </div>
                                             </div>
                                         </div>
@@ -358,7 +385,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-25">
                                                 </div>
                                             </div>
                                         </div>
@@ -369,7 +396,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-26">
                                                 </div>
                                             </div>
                                         </div>
@@ -380,7 +407,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-27">
                                                 </div>
                                             </div>
                                         </div>
@@ -397,7 +424,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-28">
                                                 </div>
                                             </div>
                                         </div>
@@ -408,7 +435,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-29">
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +446,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-30">
                                                 </div>
                                             </div>
                                         </div>
@@ -430,7 +457,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-31">
                                                 </div>
                                             </div>
                                         </div>
@@ -447,7 +474,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">预备铃纪律:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-32">
                                                 </div>
                                             </div>
                                         </div>
@@ -458,7 +485,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-33">
                                                 </div>
                                             </div>
                                         </div>
@@ -469,7 +496,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">做小动作:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-34">
                                                 </div>
                                             </div>
                                         </div>
@@ -480,7 +507,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">书未带:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-35">
                                                 </div>
                                             </div>
                                         </div>
@@ -497,7 +524,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">课间:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-36">
                                                 </div>
                                             </div>
                                         </div>
@@ -516,7 +543,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">睁眼:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-37">
                                                 </div>
                                             </div>
                                         </div>
@@ -527,7 +554,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-38">
                                                 </div>
                                             </div>
                                         </div>
@@ -538,7 +565,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">推打:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-39">
                                                 </div>
                                             </div>
                                         </div>
@@ -549,7 +576,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">不做:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-40">
                                                 </div>
                                             </div>
                                         </div>
@@ -566,7 +593,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">睁眼:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-41">
                                                 </div>
                                             </div>
                                         </div>
@@ -577,7 +604,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-42">
                                                 </div>
                                             </div>
                                         </div>
@@ -588,7 +615,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">推打:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-43">
                                                 </div>
                                             </div>
                                         </div>
@@ -599,7 +626,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">不做:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-44">
                                                 </div>
                                             </div>
                                         </div>
@@ -616,7 +643,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">睁眼:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-45">
                                                 </div>
                                             </div>
                                         </div>
@@ -627,7 +654,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">讲话:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-46">
                                                 </div>
                                             </div>
                                         </div>
@@ -638,7 +665,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">推打:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-47">
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +676,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">不做:</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="">
+                                                    <input type="text" placeholder="" id="input-48">
                                                 </div>
                                             </div>
                                         </div>
@@ -664,10 +691,24 @@
     </div>
     </div>
 
-    <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <div class="popup popup-result">
+        <div class="content-block">
+            <p>统计结果</p>
+            <p><a href="#" class="close-popup">关闭</a></p>
+            <div id="divResult">
+            </div>
+        </div>
+    </div>
 
+    <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://libs.baidu.com/jquery/1.11.1/jquery.min.js'></script>
+    <script type='text/javascript' src='g1c4.js' charset='utf-8'></script>
+    <script>
+        var jq=$.noConflict();
+        $.init()
+    </script>
 </body>
 
 </html>
