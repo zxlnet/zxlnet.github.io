@@ -33,6 +33,17 @@ $(function() {
         });
     });
 
+    $("#btnRevote").click(function(){
+        $.prompt('输入班主任密码?', function (value) {
+            if (value!="991015") {
+                $.toast("密码错误哦!" );
+                return;
+            } else {
+                revote();
+            }
+        });
+    });
+
     showStudents();
 });  
 
@@ -88,6 +99,10 @@ function resetUI(){
     }); 
 }
 
+function revote(){
+    window.localStorage.removeItem("votedList");
+}
+
 function showStudents(){
     var html = "";
 
@@ -124,13 +139,14 @@ function calc(){
 
     strCached = window.localStorage.getItem("votedList");
     var mapVoted = JSON.parse(strCached);
+    
     for(var i=0;i<students.length;i++){
         var rec = mapVoted[students[i]];
         if (rec!=null) {
             arrResult[students[i]] = rec;
         } 
     }
-    
+
     show(arrResult);
 }
 
@@ -138,7 +154,7 @@ function show(arrResult){
     var html="<table class='result-table'><tr><th>学生</th><th>结果</th><th>学生</th><th>结果</th><th>学生</th><th>结果</th></tr>";
     for (var i=1;i<=students.length;i++){
         if (i % 3 == 1) html+="<tr>";
-        html+="<td>" + (i) + ":" + students[i-1] + "</td>";
+        html+="<td>" + students[i-1] + "</td>";
         
         var tdstyle="";
         html+="<td style='" + tdstyle + "'>" + arrResult[students[i-1]] + "</td>";
