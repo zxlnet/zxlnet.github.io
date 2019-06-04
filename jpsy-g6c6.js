@@ -7,7 +7,7 @@ var students = ["贲忻悦","陈文珺","陈映佳","董钰","黄怿依","金悦
 "夏锦桢","徐捷华","袁逸嘉","张景云","张欣平","张阳",
 "张震宇","周哲愚"]
 
-let maxVoteCnt = 3;
+let maxVoteCnt = 10;
 
 $(function() {
     $("#btnStat").click(function(){
