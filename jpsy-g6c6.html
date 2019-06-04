@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>班级评优统计</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <style type="text/css">
+        table.result-table {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #cccccc;
+            border-collapse: collapse;
+            text-align: center;
+            width: 100%;
+        }
+
+        table.result-table th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #cccccc;
+            background-color: #dedede;
+        }
+
+        table.result-table td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #cccccc;
+            background-color: #ffffff;
+        }
+
+        input {
+            ime-mode: disabled;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-group">
+        <div class="page page-current">
+            <header class="bar bar-nav">
+                <button id="btnStat" class="button button-fill button-error pull-left">
+                    查看投票结果
+                </button>
+                <button id="btnReset" class="button button-fill button-warning pull-right">
+                    重填
+                </button>
+                <button id="btnSubmit" class="button button-fill button-success pull-right">
+                    提交
+                </button>
+                <h1 class="title">班级评优统计(六年级六班)</h1>
+            </header>
+
+            <div class="content">
+                <div class="buttons-tab">
+                    <a href="#tab1" class="tab-link active button">每次只能选10位同学。</a>
+                </div>
+                <div class="content-block">
+                    <div class="tabs">
+                        <div id="tab1" class="tab active">
+                            <div class="list-block">
+                                <ul id="ulStudents">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="popup popup-result">
+        <div class="content-block">
+            <p>统计结果</p>
+            <p><a href="#" class="close-popup">关闭</a></p>
+            <div id="divResult">
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js'
+        charset='utf-8'></script>
+    <script type='text/javascript' src='https://libs.baidu.com/jquery/1.11.1/jquery.min.js'></script>
+    <script type='text/javascript' src='jpsy-g6c6.js' charset='utf-8'></script>
+    <script>
+        var jq = $.noConflict();
+        $.init()
+    </script>
+</body>
+
+</html>
