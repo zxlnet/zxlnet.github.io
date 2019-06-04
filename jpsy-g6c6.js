@@ -110,13 +110,18 @@ function showStudents(){
         html +="<li>";
         html +="<div class=\"item-inner\">";
         for (var j=0;j < 3;j++){
+            var name = students[i*3+j];
+            if (name==undefined) name="";
             html += "<div class=\"item-input\">";
-            html += "<label class=\"label-switch\">";
-            html += "    <input type=\"checkbox\" name=\"chkStudent\" value=\"" + students[i*3+j] + "\">";
-            html += "    <div class=\"checkbox\"></div>";
-            html += "</label>";
+            if (name!="") {
+                html += "<label class=\"label-switch\">";
+                html += "    <input type=\"checkbox\" name=\"chkStudent\" value=\"" + name + "\">";
+                html += "    <div class=\"checkbox\"></div>";
+                html += "</label>";
+            }
             html += "</div>";
-            html += "<div class=\"item-title label\">" + students[i*3+j] + "</div>";
+            
+            html += "<div class=\"item-title label\">" + name + "</div>";
         }
         html +="</div>";
         html +="</li>";
