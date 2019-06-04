@@ -22,7 +22,9 @@ $(function() {
     });
 
     $("#btnReset").click(function(){
-        resetUI();
+        $.confirm('确定要重新填写吗?', function () {
+            resetUI();
+        });
     });
 
     $("#btnSubmit").click(function(){
@@ -81,11 +83,9 @@ function strMapToObj(strMap) {
 }
 
 function resetUI(){
-    $.confirm('确定要重新填写吗?', function () {
-        $("input[name='chkStudent']").each(function(){
-            $(this).prop('checked',false)
-        }); 
-    });
+    $("input[name='chkStudent']").each(function(){
+        $(this).prop('checked',false)
+    }); 
 }
 
 function showStudents(){
